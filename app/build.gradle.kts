@@ -1,15 +1,15 @@
 import dependencies.Dependencies
+import dependencies.TestAndroidDependencies
 import dependencies.TestDependencies
 
 plugins {
-    id("com.android.application")
-    id("kotlin-android")
-    id("kotlin-android-extensions")
+    id(BuildPlugins.ANDROID_APPLICATION)
+    id(BuildPlugins.KOTLIN_ANDROID)
+    id(BuildPlugins.KOTLIN_ANDROID_EXTENSIONS)
 }
 
 android {
-    compileSdkVersion(29)
-    buildToolsVersion("29.0.3")
+    compileSdkVersion(BuildAndroidConfig.COMPILE_SDK_VERSION)
 
     defaultConfig {
         applicationId = BuildAndroidConfig.APPLICATION_ID
@@ -27,10 +27,7 @@ android {
     buildTypes {
         getByName("release") {
             isMinifyEnabled = false
-            proguardFiles(
-                getDefaultProguardFile("proguard-android-optimize.txt"),
-                "proguard-rules.pro"
-            )
+            proguardFiles("proguard-android-optimize.txt", "proguard-rules.pro")
         }
     }
 
@@ -53,7 +50,10 @@ dependencies {
     implementation(Dependencies.APPCOMPAT)
     implementation(Dependencies.APPCOMPAT)
 
+    //Test
     testImplementation(TestDependencies.JUNIT)
-    androidTestImplementation("androidx.test.ext:junit:1.1.1")
-    androidTestImplementation("androidx.test.espresso:espresso-core:3.2.0")
+
+    //Android Test
+    androidTestImplementation(TestAndroidDependencies.ESPRESSO)
+    androidTestImplementation(TestAndroidDependencies.JUNIT_EXT)
 }
