@@ -49,7 +49,7 @@ dependencies {
     implementation(fileTree(mapOf("dir" to "libs", "include" to listOf("*.jar"))))
     implementation(Dependencies.KOTLIN)
     implementation(Dependencies.APPCOMPAT)
-    implementation(Dependencies.APPCOMPAT)
+    implementation(Dependencies.CONSTRAINT_LAYOUT)
 
     //Test
     testImplementation(TestDependencies.JUNIT)

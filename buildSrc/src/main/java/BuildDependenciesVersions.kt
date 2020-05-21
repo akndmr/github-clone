@@ -7,6 +7,7 @@ object BuildDependenciesVersions {
 
     const val KOTLIN = "1.3.72"
     const val APPCOMPAT = "1.1.0"
+    const val CONSTRAINT_LAYOUT = "1.1.3"
     const val CORE_KTX = "1.2.0"
 
     //Test Dependencies
