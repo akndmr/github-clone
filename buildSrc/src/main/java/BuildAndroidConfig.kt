@@ -1,4 +1,8 @@
 
+/**
+ * Keeps android configs
+ */
+
 object BuildAndroidConfig {
     const val APPLICATION_ID = "com.mobillium.github"
 

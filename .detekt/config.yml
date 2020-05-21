@@ -333,7 +333,7 @@ naming:
     excludeClassPattern: '$^'
     ignoreOverriddenFunctions: true
   InvalidPackageDeclaration:
-    active: true
+    active: false
     rootPackage: ''
   MatchingDeclarationName:
     active: true

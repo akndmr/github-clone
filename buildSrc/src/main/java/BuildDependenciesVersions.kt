@@ -1,4 +1,8 @@
 
+/**
+ * Keeps dependency versions
+ */
+
 object BuildDependenciesVersions {
 
     const val KOTLIN = "1.3.72"
