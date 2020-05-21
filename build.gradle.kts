@@ -1,15 +1,8 @@
-// Top-level build file where you can add configuration options common to all sub-projects/modules.
+import io.gitlab.arturbosch.detekt.DetektPlugin
+import io.gitlab.arturbosch.detekt.extensions.DetektExtension
 
-buildscript {
-    repositories {
-        google()
-        jcenter()
-
-    }
-    dependencies {
-        classpath("com.android.tools.build:gradle:3.6.3")
-        classpath("org.jetbrains.kotlin:kotlin-gradle-plugin:1.3.72")
-    }
+apply {
+    plugin("io.gitlab.arturbosch.detekt")
 }
 
 allprojects {
@@ -19,8 +12,26 @@ allprojects {
         maven { url = uri("https://jitpack.io") }
 
     }
+
+    apply<DetektPlugin>()
+
+    configure<DetektExtension> {
+        input = project.files("src/main")
+        config = files("$rootDir/.detekt/config.yml")
+        reports {
+            xml {
+                enabled = true
+                destination = project.file("build/reports/detekt/report.xml")
+            }
+            html {
+                enabled = true
+                destination = project.file("build/reports/detekt/report.html")
+            }
+        }
+    }
 }
 
-tasks.register("clean",Delete::class){
+tasks.register("clean", Delete::class) {
     delete(rootProject.buildDir)
 }
+
